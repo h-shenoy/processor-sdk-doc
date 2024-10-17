@@ -362,7 +362,12 @@ Device Tree Node
 Documentation for tidss device tree node and its properties can be found in linux kernel device tree bindings in below directory
 ``Documentation/devicetree/bindings/display/ti/``. Seperate binding files are present for different version of the DSS controller.
 
+.. ifconfig:: CONFIG_part_variant in ('J721S2')
 
+        - Ball number **AA24** is used for HPD in mux mode 3, irrespective of this is connected as HPD or not, this pin can not be used for other purpose, if DP0 is used.
+        - This pin is normally unused, but DPI to DP bridges from third parties might be referencing this pin regardless of whether it is connected in
+	  hardware or software. Setting this pin as GPIO may result in undefined behavior.
+	  
 Driver Usage
 ============
 
